@@ -1,0 +1,46 @@
+export const experience = [
+  {
+    position: 'Frontend Developer',
+    company: 'Abhyam Robotics Institution of Business and Technology (ARIBT)',
+    period: 'Butwal, Nepal | ~1 Year',
+    description: 'Developed responsive web applications and admin dashboards using React, TypeScript, and modern frontend technologies for educational platforms serving 500+ active users.',
+    achievements: [
+      'Built responsive admin dashboards and student management interfaces using React and TypeScript for 500+ users',
+      'Implemented JWT-based authentication and role-based authorization with Context API for state management',
+      'Created advanced form validation using Formik & Yup with seamless input processing',
+      'Designed RBAC UI components with protected routes for secure admin access',
+      'Built data tables with filtering, sorting, and pagination for efficient content management',
+      'Optimized component rendering and created reusable component libraries',
+      'Collaborated with backend developers for smooth REST API integration',
+      'Participated in code reviews maintaining high code quality standards',
+    ],
+  },
+  {
+    position: 'Junior Frontend Developer Intern',
+    company: 'Hub IT Group Pvt Ltd',
+    period: 'Butwal, Nepal | 3-6 Months',
+    description: 'Gained hands-on experience developing dynamic web applications with React and modern JavaScript while learning industry best practices.',
+    achievements: [
+      'Developed dynamic, responsive web applications using React and JavaScript (ES6+)',
+      'Implemented responsive design with CSS, Tailwind CSS, and mobile-first principles',
+      'Built and tested reusable React components with proper prop handling',
+      'Assisted in debugging, optimization, and performance improvements',
+      'Learned version control with Git and GitHub for team collaboration',
+      'Contributed to UI/UX improvements implementing designs from mockups',
+      'Gained experience with REST API integration and data fetching',
+      'Participated in daily standups and agile development practices',
+    ],
+  },
+  {
+    position: 'Web Development Training',
+    company: 'Butwal Multiple Campus',
+    period: 'Butwal, Nepal',
+    description: 'Completed comprehensive web development training as part of academic program, building foundational skills in frontend development.',
+    achievements: [
+      'Learned modern web development fundamentals including HTML, CSS, and JavaScript',
+      'Built multiple practice projects applying responsive design principles',
+      'Gained understanding of React framework and component-based architecture',
+      'Developed problem-solving skills through hands-on coding exercises',
+    ],
+  },
+];
