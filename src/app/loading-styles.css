@@ -45,10 +45,10 @@
   top: -50px;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
-  color: #b76e79;
+  color: #0ea5e9;
   animation: codeRainFall linear infinite;
   white-space: nowrap;
-  text-shadow: 0 0 10px rgba(183, 110, 121, 0.5);
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -106,9 +106,9 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  color: rgba(201, 182, 228, 0.3);
+  color: rgba(129, 140, 248, 0.3);
   animation: iconFloat 6s ease-in-out infinite;
-  filter: drop-shadow(0 0 15px rgba(201, 182, 228, 0.4));
+  filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.4));
 }
 
 .icon-float svg {
@@ -198,9 +198,9 @@
   overflow: hidden;
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.8),
-    0 0 40px rgba(183, 110, 121, 0.3),
+    0 0 40px rgba(14, 165, 233, 0.3),
     inset 0 0 20px rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(183, 110, 121, 0.4);
+  border: 2px solid rgba(14, 165, 233, 0.4);
   animation: terminalGlow 3s ease-in-out infinite;
   transition: all 0.8s ease;
 }
@@ -225,10 +225,10 @@
 .typing-terminal.expand-glow {
   box-shadow: 
     0 30px 80px rgba(0, 0, 0, 0.9),
-    0 0 100px rgba(183, 110, 121, 0.8),
-    0 0 150px rgba(201, 182, 228, 0.6),
+    0 0 100px rgba(14, 165, 233, 0.8),
+    0 0 150px rgba(129, 140, 248, 0.6),
     inset 0 0 40px rgba(255, 255, 255, 0.15);
-  border-color: #b76e79;
+  border-color: #0ea5e9;
   transform: scale(1.05);
 }
 
@@ -236,13 +236,13 @@
   0%, 100% {
     box-shadow: 
       0 20px 60px rgba(0, 0, 0, 0.8),
-      0 0 40px rgba(183, 110, 121, 0.3),
+      0 0 40px rgba(14, 165, 233, 0.3),
       inset 0 0 20px rgba(255, 255, 255, 0.05);
   }
   50% {
     box-shadow: 
       0 20px 60px rgba(0, 0, 0, 0.8),
-      0 0 60px rgba(183, 110, 121, 0.6),
+      0 0 60px rgba(14, 165, 233, 0.6),
       inset 0 0 30px rgba(255, 255, 255, 0.08);
   }
 }
@@ -253,7 +253,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid rgba(183, 110, 121, 0.2);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.2);
 }
 
 .terminal-dots {
@@ -282,7 +282,7 @@
   padding: 2rem;
   font-family: 'Courier New', monospace;
   font-size: 2rem;
-  color: #c9b6e4;
+  color: #818cf8;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -290,24 +290,24 @@
 }
 
 .terminal-prompt {
-  color: #b76e79;
+  color: #0ea5e9;
   font-weight: bold;
 }
 
 .typed-name {
-  color: #c9b6e4;
-  text-shadow: 0 0 20px rgba(201, 182, 228, 0.8);
+  color: #818cf8;
+  text-shadow: 0 0 20px rgba(129, 140, 248, 0.8);
   letter-spacing: 0.05em;
   transition: all 0.8s ease;
 }
 
 /* Name Complete Effect */
 .typed-name.name-complete {
-  color: #b76e79;
+  color: #0ea5e9;
   text-shadow: 
-    0 0 30px rgba(183, 110, 121, 1),
-    0 0 60px rgba(183, 110, 121, 0.8),
-    0 0 90px rgba(201, 182, 228, 0.6);
+    0 0 30px rgba(14, 165, 233, 1),
+    0 0 60px rgba(14, 165, 233, 0.8),
+    0 0 90px rgba(129, 140, 248, 0.6);
   animation: nameGlow 1.5s ease-in-out;
 }
 
@@ -337,7 +337,7 @@
 }
 
 .cursor-blink {
-  color: #b76e79;
+  color: #0ea5e9;
   animation: blink 0.8s infinite;
   font-weight: bold;
 }
@@ -387,7 +387,7 @@
 
 .key-3d {
   background: linear-gradient(145deg, #2a2f3a, #1a1f29);
-  border: 2px solid rgba(183, 110, 121, 0.4);
+  border: 2px solid rgba(14, 165, 233, 0.4);
   padding: 1rem 1.5rem;
   font-size: 1rem;
   color: #fff;
@@ -400,7 +400,7 @@
   transition: all 0.3s ease;
   box-shadow: 
     0 15px 30px rgba(0, 0, 0, 0.7),
-    0 8px 15px rgba(183, 110, 121, 0.2),
+    0 8px 15px rgba(14, 165, 233, 0.2),
     inset 0 2px 5px rgba(255, 255, 255, 0.1),
     inset 0 -2px 5px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -410,7 +410,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, rgba(183, 110, 121, 0.3), rgba(201, 182, 228, 0.3));
+  background: linear-gradient(145deg, rgba(14, 165, 233, 0.3), rgba(129, 140, 248, 0.3));
   border-radius: 10px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -423,18 +423,18 @@
   left: 10%;
   right: 10%;
   height: 25px;
-  background: linear-gradient(to bottom, rgba(183, 110, 121, 0.5), transparent);
+  background: linear-gradient(to bottom, rgba(14, 165, 233, 0.5), transparent);
   filter: blur(15px);
 }
 
 .key-3d.active {
   transform: translateZ(50px) translateY(-15px);
-  border-color: #b76e79;
+  border-color: #0ea5e9;
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.9),
-    0 15px 30px rgba(183, 110, 121, 0.6),
+    0 15px 30px rgba(14, 165, 233, 0.6),
     inset 0 2px 8px rgba(255, 255, 255, 0.2);
-  background: linear-gradient(145deg, #b76e79, #c9b6e4);
+  background: linear-gradient(145deg, #0ea5e9, #818cf8);
   color: #fff;
 }
 
@@ -456,7 +456,7 @@
 
 .subtitle-text {
   font-size: 1.3rem;
-  color: #a8dadc;
+  color: #7dd3fc;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
@@ -469,10 +469,10 @@
 .loading-dots span {
   width: 10px;
   height: 10px;
-  background: #b76e79;
+  background: #0ea5e9;
   border-radius: 50%;
   animation: dotBounce 1.4s infinite ease-in-out;
-  box-shadow: 0 0 15px rgba(183, 110, 121, 0.8);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.8);
 }
 
 .loading-dots span:nth-child(1) { animation-delay: 0s; }
@@ -532,10 +532,10 @@
 .completion-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
-  color: #c9b6e4;
+  color: #818cf8;
   font-weight: 600;
   letter-spacing: 2px;
-  text-shadow: 0 0 20px rgba(201, 182, 228, 0.8);
+  text-shadow: 0 0 20px rgba(129, 140, 248, 0.8);
 }
 
 /* Explosion Effect */
@@ -550,10 +550,10 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  background: radial-gradient(circle, #b76e79, #c9b6e4);
+  background: radial-gradient(circle, #0ea5e9, #818cf8);
   border-radius: 50%;
   animation: explode 2s ease-out forwards;
-  box-shadow: 0 0 25px rgba(183, 110, 121, 1);
+  box-shadow: 0 0 25px rgba(14, 165, 233, 1);
 }
 
 @keyframes explode {
@@ -593,7 +593,7 @@
 
 .grid-line {
   position: absolute;
-  background: #c9b6e4;
+  background: #818cf8;
 }
 
 .grid-line.horizontal {
@@ -611,10 +611,10 @@
   position: absolute;
   width: 4px;
   height: 4px;
-  background: rgba(201, 182, 228, 0.6);
+  background: rgba(129, 140, 248, 0.6);
   border-radius: 50%;
   animation: particleFloat 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(201, 182, 228, 0.8);
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.8);
 }
 
 .particle.particle-fall {

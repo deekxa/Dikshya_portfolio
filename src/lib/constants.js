@@ -13,10 +13,10 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAV_ITEMS = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/#home', label: 'Home' },
+  { href: '/#about', label: 'About' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export const ANIMATION_DURATION = 1000;

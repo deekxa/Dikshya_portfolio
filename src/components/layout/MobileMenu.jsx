@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function MobileMenu({ isOpen, onClose, links, pathname }) {
+export default function MobileMenu({ isOpen, onClose, links, pathname, activeHref }) {
   if (!isOpen) return null;
 
   return (
@@ -12,7 +12,7 @@ export default function MobileMenu({ isOpen, onClose, links, pathname }) {
               href={link.href}
               onClick={onClose}
               className={`block py-2 px-4 rounded-lg transition-colors ${
-                pathname === link.href
+                pathname === '/' && activeHref === link.href
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
               }`}

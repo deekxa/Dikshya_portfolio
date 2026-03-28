@@ -5,6 +5,14 @@ html, body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 * {
   box-sizing: border-box;
 }
