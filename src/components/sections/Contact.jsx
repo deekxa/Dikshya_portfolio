@@ -29,10 +29,10 @@ const contactLinks = [
     accent: 'slate',
   },
   {
-    label: 'Portfolio',
+    label: 'Other Portfolio',
     value: 'dikshyakhanal.com.np',
     href: 'https://dikshyakhanal.com.np',
-    note: 'You are here',
+    // note: 'You are here',
     accent: 'emerald',
   },
 ];
@@ -387,7 +387,7 @@ export default function Contact() {
               </motion.button>
 
               <p className="text-[11px] text-slate-500 text-center">
-                Goes directly to dikshyak88@gmail.com — no backend needed.
+             
               </p>
             </form>
           </motion.div>

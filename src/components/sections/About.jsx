@@ -58,7 +58,7 @@ const quickInfo = [
   { label: 'Experience',   value: '1+ year, production apps'        },
   { label: 'Location',     value: 'Nepal — open to remote'          },
   { label: 'Availability', value: 'Immediately available'           },
-  { label: 'Stack',        value: 'React · Next.js · TS · Tailwind' },
+  { label: 'Stack',        value: 'React · Next.js · TS · JS · Tailwind' },
   { label: 'Testing',      value: 'Jest · RTL · Playwright'         },
   { label: 'English',      value: 'Proficient'                      },
 ];
@@ -225,7 +225,7 @@ export default function About() {
                   e-commerce platform, an educational CMS, and a POS system 
                   using{' '}
                   <span className="text-slate-900 font-medium">
-                    React, Next.js, TypeScript, and Tailwind CSS.
+                    React, Next.js, TypeScript,JavaScript and Tailwind CSS.
                   </span>
                 </motion.p>
 
@@ -268,7 +268,7 @@ export default function About() {
                   'Production React & Next.js apps, not just side projects',
                   'Testing discipline  Jest, RTL, Playwright from day one',
                   'Framer Motion animations built into the component layer',
-                  'Clean TypeScript with typed APIs and reusable component systems',
+                  'Clean TypeScript/ JavaScript with typed APIs and reusable component systems',
                   'Strong attention to UI detail  spacing, motion, edge cases',
                   'Communicates clearly, reviews PRs, works async without prompting',
                 ].map((point) => (

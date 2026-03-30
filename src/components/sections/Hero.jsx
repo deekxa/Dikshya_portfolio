@@ -425,13 +425,14 @@ export default function Hero() {
             transition={{ delay: 0.55, duration: 0.6 }}
           >
             I build{' '}
-            <span className="text-slate-300">clean, performant interfaces</span>{' '}
-            for modern products marketing sites, e‑commerce, dashboards, and CMS. I pair{' '}
-            <span className="text-sky-400/80">React · Next.js · TypeScript· JavaScript</span>{' '}
-            engineering with a{' '}
-            <span className="text-indigo-400/80">QA mindset</span>,{' '}
-            accessibility, and refined animation to ship work that holds up under real use.
-          </motion.p>
+  <span className="text-slate-300">clean, performant interfaces</span>{' '}
+  for modern products - marketing sites, e‑commerce, dashboards, CMS, and beyond. I pair{' '}
+  <span className="text-sky-400/80">React · Next.js · TypeScript · JavaScript</span>{' '}
+  engineering with a{' '}
+  <span className="text-indigo-400/80">QA mindset</span>,{' '}
+  accessibility, and refined animation to ship work that holds up under real use.
+  I adapt quickly to new stacks and environments.
+</motion.p>
 
           {/* ── CTAs ── */}
           <motion.div
