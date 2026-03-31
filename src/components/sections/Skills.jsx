@@ -308,7 +308,7 @@ export default function Skills() {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          Specialist in Frontend · React · Next.js · TypeScript · Testing — no backend.
+          Specialist in Frontend · React · Next.js · TypeScript · JavaScript · Testing 
         </motion.p>
 
       </div>
