@@ -7,7 +7,6 @@ import {
   useSpring,
   useScroll,
   useTransform,
-  AnimatePresence,
 } from 'framer-motion';
 import Button from '@/components/ui/Button';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
@@ -87,15 +86,6 @@ const charVariant = {
     transition: { type: 'spring', stiffness: 200, damping: 18 },
   },
 };
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const roles = [
-  'Frontend Developer',
-  'React & Next.js Engineer',
-  'Frontend + QA',
-  'UI Craftsperson',
-];
 
 const skills = [
   { label: 'React',         color: 'cyan'   },
@@ -205,43 +195,6 @@ function ParticleCanvas() {
       ref={canvasRef}
       className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-40"
     />
-  );
-}
-
-// ─── Rotating Role ────────────────────────────────────────────────────────────
-
-function RotatingRole() {
-  const [index, setIndex] = useState(0);
-  const current = roles[index];
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % roles.length);
-    }, 2800);
-    return () => clearInterval(id);
-  }, []);
-
-  return (
-    <span className="relative inline-flex items-center">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={current}
-          className="inline-block bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-400 bg-clip-text text-transparent font-medium"
-          initial={{ opacity: 0, y: 14, filter: 'blur(5px)' }}
-          animate={{ opacity: 1, y: 0,  filter: 'blur(0px)' }}
-          exit={{    opacity: 0, y: -14, filter: 'blur(5px)' }}
-          transition={{ duration: 0.38, ease: 'easeInOut' }}
-        >
-          {current}
-        </motion.span>
-      </AnimatePresence>
-      {/* blinking cursor */}
-      <motion.span
-        className="ml-[3px] inline-block h-5 w-[1.5px] rounded-full bg-sky-400/70"
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-      />
-    </span>
   );
 }
 
@@ -368,7 +321,6 @@ export default function Hero() {
 
           {/* ── Name ── */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1] tracking-tight">
-            <span className="text-slate-400 font-light">Hi, I&apos;m&nbsp;</span>
             <motion.span
               className="inline-block"
               variants={nameVariants}
@@ -392,8 +344,9 @@ export default function Hero() {
 
           {/* ── Role line ── */}
           <p className="text-base sm:text-lg md:text-xl mb-2 flex flex-wrap gap-x-2 gap-y-1 justify-center items-center font-light min-h-[1.8rem]">
-            <span className="text-slate-600">I work as a</span>
-            <RotatingRole />
+            <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-400 bg-clip-text text-transparent font-medium">
+              Frontend Developer building scalable React &amp; Next.js applications
+            </span>
           </p>
 
           <FadeLine />
@@ -424,15 +377,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.6 }}
           >
-            I build{' '}
-  <span className="text-slate-300">clean, performant interfaces</span>{' '}
-  for modern products - marketing sites, e‑commerce, dashboards, CMS, and beyond. I pair{' '}
-  <span className="text-sky-400/80">React · Next.js · TypeScript · JavaScript</span>{' '}
-  engineering with a{' '}
-  <span className="text-indigo-400/80">QA mindset</span>,{' '}
-  accessibility, and refined animation to ship work that holds up under real use.
-  I adapt quickly to new stacks and environments.
-</motion.p>
+            1+ year experience developing CMS, POS systems and e-commerce platforms with focus on performance and clean UI.
+          </motion.p>
 
           {/* ── CTAs ── */}
           <motion.div
@@ -443,6 +389,45 @@ export default function Hero() {
           >
             <Button href="/#projects">View projects →</Button>
             <Button href="/#contact" variant="secondary">Get in touch</Button>
+          </motion.div>
+
+          {/* ── Featured Project ── */}
+          <motion.div
+            className="mt-12 max-w-md mx-auto w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <p className="text-xs tracking-widest uppercase text-slate-600 mb-3">
+              Featured Project
+            </p>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-3 hover:border-sky-500/40 transition">
+              <div className="w-full h-44 sm:h-48 rounded-lg overflow-hidden bg-slate-800/60">
+                <img
+                  src="/images/images.jpg"
+                  alt="POS System"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+
+              <div className="flex justify-between items-center mt-3 gap-3">
+                <p className="text-sm text-slate-300">
+                  POS System
+                </p>
+
+                <div className="flex gap-2 shrink-0">
+                  <a
+                    href="https://github.com/aman000712/Pos.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-slate-400 hover:text-white"
+                  >
+                    Code
+                  </a>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* ── Stats ── */}
