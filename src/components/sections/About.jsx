@@ -178,7 +178,7 @@ export default function About() {
             {/* ── CTA row ── */}
             <ScrollAnimation delay={160}>
               <motion.div
-                className="flex flex-wrap items-center gap-6"
+                className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5"
                 variants={fadeUp(0.2)}
                 initial="hidden"
                 whileInView="visible"
@@ -213,7 +213,7 @@ export default function About() {
                   </svg>
                 </motion.a>
 
-                <span className="w-1 h-1 rounded-full bg-slate-300 shrink-0" aria-hidden="true" />
+                <span className="hidden sm:inline-flex w-1 h-1 rounded-full bg-slate-300 shrink-0" aria-hidden="true" />
 
                 {/* GitHub */}
                 <motion.a
