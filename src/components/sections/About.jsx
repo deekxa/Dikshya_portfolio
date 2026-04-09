@@ -55,12 +55,12 @@ const lineGrow = {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const quickInfo = [
-  { label: 'Experience',   value: '1+ year, production apps'        },
-  { label: 'Location',     value: 'Nepal — open to remote'          },
-  { label: 'Availability', value: 'Immediately available'           },
+  { label: 'Experience',   value: '1+ yr · 3 production apps'            },
+  { label: 'Location',     value: 'Nepal - open to remote'               },
+  { label: 'Availability', value: 'Immediately available'                },
   { label: 'Stack',        value: 'React · Next.js · TS · JS · Tailwind' },
-  { label: 'Testing',      value: 'Jest · RTL · Playwright'         },
-  { label: 'English',      value: 'Proficient'                      },
+  { label: 'Testing',      value: 'Jest · RTL · Playwright'              },
+  { label: 'English',      value: 'Proficient'                           },
 ];
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
@@ -99,45 +99,53 @@ function GitHubIcon() {
 export default function About() {
   return (
     <section
-      className="relative py-24 sm:py-32 px-4 overflow-hidden bg-linear-to-b from-slate-50 via-white to-slate-100"
+      className="relative py-24 sm:py-32 px-4 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100"
       id="about"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_35%_at_25%_60%,rgba(56,189,248,0.12),transparent)]" />
 
       <div className="mx-auto max-w-5xl">
 
-        {/* ── Eyebrow ── */}
+        {/* ── Eyebrow — centered ── */}
         <ScrollAnimation>
           <motion.div
-            className="flex items-center gap-3 mb-16"
+            className="flex items-center justify-center gap-4 mb-16"
             variants={fadeUp(0)}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             <motion.div
-              className="h-px w-10 bg-gradient-to-r from-transparent to-slate-400 origin-left"
+              className="h-px w-12 bg-gradient-to-r from-transparent to-slate-400 origin-right"
               variants={lineGrow}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             />
-            <span className="text-[11px] tracking-[0.25em] uppercase text-slate-500 font-medium">
+            <span className="text-sm sm:text-base tracking-[0.35em] uppercase text-slate-500 font-semibold">
               About
             </span>
+            <motion.div
+              className="h-px w-12 bg-gradient-to-l from-transparent to-slate-400 origin-left"
+              variants={lineGrow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            />
           </motion.div>
         </ScrollAnimation>
 
         {/* ── Grid ── */}
-        <div className="grid md:grid-cols-[340px_1fr] gap-12 md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-10 md:gap-14 items-start">
 
-          {/* ── LEFT ── */}
-          <div className="flex flex-col gap-6">
+          {/* ══════════════ LEFT COLUMN ══════════════ */}
+          <div className="flex flex-col gap-5">
 
             {/* Photo */}
             <ScrollAnimation>
               <motion.div
-                className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-slate-300"
+                className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden
+                           border border-slate-200 shadow-sm"
                 variants={imageReveal}
                 initial="hidden"
                 whileInView="visible"
@@ -152,150 +160,22 @@ export default function About() {
                   className="object-cover grayscale hover:grayscale-0 transition-[filter] duration-700 ease-in-out"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/35 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none" />
 
                 {/* Nameplate */}
-                <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-white/78 backdrop-blur-sm border-t border-slate-300/80">
-                  <p className="text-sm font-semibold text-slate-900">Dikshya Khanal</p>
-                  <p className="text-[11px] text-slate-600 tracking-wide">Frontend Developer · QA</p>
+                <div className="absolute bottom-0 left-0 right-0 px-4 py-3
+                                bg-white/85 backdrop-blur-sm border-t border-white/60">
+                  <p className="text-sm font-semibold text-slate-900 leading-tight">
+                    Dikshya Khanal
+                  </p>
+                  <p className="text-[11px] text-slate-500 tracking-wide mt-0.5">
+                    Frontend Developer · QA
+                  </p>
                 </div>
               </motion.div>
             </ScrollAnimation>
 
-            {/* Quick info */}
-            <ScrollAnimation delay={100}>
-              <motion.div
-                className="flex flex-col divide-y divide-slate-300/80"
-                variants={staggerList}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {quickInfo.map(({ label, value }) => (
-                  <motion.div
-                    key={label}
-                    variants={listItem}
-                    className="flex items-start justify-between gap-4 py-2.5 group"
-                  >
-                    <span className="text-[11px] uppercase tracking-widest text-slate-500 shrink-0 pt-[1px] w-24">
-                      {label}
-                    </span>
-                    <span className="text-xs text-slate-700 text-right leading-snug group-hover:text-slate-900 transition-colors duration-200">
-                      {value}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </ScrollAnimation>
-          </div>
-
-          {/* ── RIGHT ── */}
-          <div className="flex flex-col gap-8 md:pt-1">
-
-            {/* Heading */}
-            <ScrollAnimation>
-              <motion.h2
-                className="text-3xl sm:text-4xl font-bold leading-[1.15] tracking-tight text-slate-900"
-                variants={fadeUp(0)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                Frontend dev who
-                <br />
-                <span className="bg-gradient-to-r from-sky-600 via-slate-900 to-indigo-600 bg-clip-text text-transparent">
-                  ships and tests.
-                </span>
-              </motion.h2>
-            </ScrollAnimation>
-
-            {/* Bio */}
-            <ScrollAnimation delay={80}>
-              <motion.div
-                className="flex flex-col gap-4 text-sm sm:text-base text-slate-700 leading-relaxed"
-                variants={staggerList}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <motion.p variants={listItem}>
-                  I have{' '}
-                  <span className="text-slate-900 font-medium">1+ year</span>{' '}
-                  of professional experience building real products an
-                  e-commerce platform, an educational CMS, and a POS system 
-                  using{' '}
-                  <span className="text-slate-900 font-medium">
-                    React, Next.js, TypeScript,JavaScript and Tailwind CSS.
-                  </span>
-                </motion.p>
-
-                <motion.p variants={listItem}>
-                  Most frontend devs skip testing. I don&apos;t. I write
-                  unit tests with{' '}
-                  <span className="text-sky-700">Jest + React Testing Library</span>{' '}
-                  and end-to-end flows with{' '}
-                  <span className="text-sky-700">Playwright</span>,
-                  which means the features I ship stay working.
-                </motion.p>
-
-                <motion.p variants={listItem}>
-                  I care about animation quality {' '}
-                  <span className="text-indigo-700">Framer Motion</span>{' '}
-                  is a core part of how I build UI, not an afterthought.
-                  Interfaces I deliver feel polished, load fast, and don&apos;t
-                  break on edge cases.
-                </motion.p>
-              </motion.div>
-            </ScrollAnimation>
-
-            {/* What I bring */}
-            <ScrollAnimation delay={120}>
-              <motion.div
-                className="flex flex-col gap-3 pt-2"
-                variants={staggerList}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <motion.p
-                  variants={listItem}
-                  className="text-[11px] tracking-[0.22em] uppercase text-slate-500 mb-1"
-                >
-                  What I bring to a team
-                </motion.p>
-
-                {[
-                  'Production React & Next.js apps, not just side projects',
-                  'Testing discipline  Jest, RTL, Playwright from day one',
-                  'Framer Motion animations built into the component layer',
-                  'Clean TypeScript/ JavaScript with typed APIs and reusable component systems',
-                  'Strong attention to UI detail  spacing, motion, edge cases',
-                  'Communicates clearly, reviews PRs, works async without prompting',
-                ].map((point) => (
-                  <motion.div
-                    key={point}
-                    variants={listItem}
-                    className="flex items-start gap-2.5"
-                  >
-                    <CheckIcon />
-                    <span className="text-sm text-slate-700 leading-snug">
-                      {point}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </ScrollAnimation>
-
-            {/* Divider */}
-            <motion.div
-              className="h-px bg-gradient-to-r from-slate-300 via-slate-400/60 to-transparent origin-left"
-              variants={lineGrow}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            />
-
-            {/* ── CTA row: Download CV + GitHub ── */}
+            {/* ── CTA row ── */}
             <ScrollAnimation delay={160}>
               <motion.div
                 className="flex flex-wrap items-center gap-6"
@@ -309,16 +189,17 @@ export default function About() {
                   href="/cv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-sm text-slate-600
+                  aria-label="Download Dikshya Khanal's CV"
+                  className="inline-flex items-center gap-3 text-sm text-slate-500
                     hover:text-slate-900 transition-colors duration-200 group"
                   whileHover={{ x: 3 }}
                   transition={{ type: 'spring', stiffness: 200, damping: 18 }}
                 >
-                  <span className="h-px w-5 bg-slate-400 group-hover:w-7 group-hover:bg-sky-600
+                  <span className="h-px w-5 bg-slate-300 group-hover:w-7 group-hover:bg-sky-500
                     transition-all duration-300" />
                   <span className="tracking-wide">Download CV</span>
                   <svg
-                    className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity"
+                    className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -332,26 +213,101 @@ export default function About() {
                   </svg>
                 </motion.a>
 
-                {/* Separator dot */}
-                <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0" aria-hidden="true" />
+                <span className="w-1 h-1 rounded-full bg-slate-300 shrink-0" aria-hidden="true" />
 
                 {/* GitHub */}
                 <motion.a
                   href="https://github.com/deekxa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-sm text-slate-600
+                  aria-label="Dikshya Khanal on GitHub"
+                  className="inline-flex items-center gap-2.5 text-sm text-slate-500
                     hover:text-slate-900 transition-colors duration-200 group"
                   whileHover={{ x: 3 }}
                   transition={{ type: 'spring', stiffness: 200, damping: 18 }}
                 >
-                  <span className="h-px w-5 bg-slate-400 group-hover:w-7 group-hover:bg-slate-700
+                  <span className="h-px w-5 bg-slate-300 group-hover:w-7 group-hover:bg-slate-700
                     transition-all duration-300" />
                   <span className="tracking-wide">GitHub</span>
                   <GitHubIcon />
                 </motion.a>
+
               </motion.div>
             </ScrollAnimation>
+
+          </div>
+
+          {/* ══════════════ RIGHT COLUMN ══════════════ */}
+          <div className="flex flex-col gap-7">
+
+            {/* Bio */}
+            <ScrollAnimation delay={80}>
+              <motion.div
+                className="flex flex-col gap-5 text-[15px] text-slate-600 leading-[1.75]"
+                variants={staggerList}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <motion.p variants={listItem}>
+                  I&apos;ve worked on real projects like an e-commerce platform, an
+                  educational CMS, and a POS system using React, Next.js,
+                  TypeScript, JavaScript, and Tailwind CSS.
+                </motion.p>
+
+                <motion.p variants={listItem}>
+                  I also focus on testing. I write unit tests with Jest and
+                  React Testing Library, and I use Playwright for end-to-end
+                  testing. This helps make sure features keep working even after
+                  changes.
+                </motion.p>
+
+                <motion.p variants={listItem}>
+                  I pay attention to UI details and animations. I use Framer
+                  Motion to add smooth interactions, and I try to keep
+                  interfaces fast, clean, and consistent across devices.
+                </motion.p>
+              </motion.div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={120}>
+              <motion.div
+                className="flex flex-col gap-2.5"
+                variants={staggerList}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <motion.p
+                  variants={listItem}
+                  className="text-[10px] tracking-[0.22em] uppercase text-slate-400 mb-1"
+                >
+                 
+                </motion.p>
+
+                {quickInfo.map(({ label, value }) => (
+                  <motion.div
+                    key={label}
+                    variants={listItem}
+                    className="flex items-start gap-2.5"
+                  >
+                    <CheckIcon />
+                    <span className="text-[13px] text-slate-600 leading-snug">
+                      <span className="text-slate-800 font-medium">{label}:</span> {value}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </ScrollAnimation>
+
+            {/* Divider */}
+            <motion.div
+              className="h-px bg-gradient-to-r from-slate-200 via-slate-300/60 to-transparent origin-left"
+              variants={lineGrow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            />
 
           </div>
         </div>

@@ -12,7 +12,6 @@ const projects = [
     type: 'Educational Platform',
     role: 'Frontend Developer Intern',
     org: 'Abhyam Robotics Institution (ARIBT)',
-    impact: 'Course management for 500+ active users',
     description:
       'Full educational platform management system with course enrollment, progress tracking, and analytics dashboard. Built at ARIBT as the primary intern project.',
     stack: ['React', 'JavaScript', 'Context API', 'REST APIs', 'Formik/Yup', 'JWT Auth'],
@@ -30,7 +29,6 @@ const projects = [
     type: 'Restaurant / Retail POS',
     role: 'Frontend Developer',
     org: 'ARIBT',
-    impact: '50+ concurrent transactions supported',
     description:
       'Restaurant and retail Point-of-Sale with JWT auth, role-based access, table ordering, inventory management, and a sales dashboard.',
     stack: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs', 'JWT Auth'],
@@ -48,7 +46,6 @@ const projects = [
     type: 'Corporate / Marketing Site',
     role: 'Frontend Developer',
     org: 'ARIBT',
-    impact: 'Optimized Core Web Vitals — production live',
     description:
       'Full professional website with Framer Motion animations, case studies, testimonials, and SEO-optimized Next.js SSR. Mobile-first with strong performance scores.',
     stack: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'SSR', 'SEO'],
@@ -66,7 +63,6 @@ const projects = [
     type: 'Admin Dashboard',
     role: 'Frontend Developer',
     org: 'ARIBT',
-    impact: '40% improvement in admin efficiency',
     description:
       'Admin dashboard for education consultancy with user management, content creation, and advanced form validation. Data tables with filtering, sorting, and pagination.',
     stack: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs', 'Formik', 'Yup'],
@@ -84,7 +80,6 @@ const projects = [
     type: 'E-Commerce Platform',
     role: 'Solo Developer',
     org: null,
-    impact: 'Full checkout & payment flow — live',
     description:
       'Modern e-commerce platform for handmade and designer bags. Secure checkout with payment processing, user accounts, cart, wishlist, and product catalog.',
     stack: ['React', 'Next.js', 'Tailwind CSS', 'Payment Integration', 'Auth'],
@@ -102,7 +97,6 @@ const projects = [
     type: 'E-Commerce / Artisan Store',
     role: 'Solo Developer',
     org: null,
-    impact: 'Full product catalog with cart & checkout',
     description:
       'E-commerce platform for bamboo and handcrafted products. Product browsing, cart management, and checkout flow built with a clean, responsive UI.',
     stack: ['React', 'Next.js', 'Tailwind CSS', 'JavaScript'],
@@ -120,7 +114,6 @@ const projects = [
     type: 'Developer Portfolio',
     role: 'Solo Developer',
     org: null,
-    impact: 'Production-deployed personal portfolio site',
     description:
       'Professional portfolio website built for a developer. Showcases projects, skills, and contact — built with Next.js and Framer Motion animations.',
     stack: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
@@ -250,14 +243,6 @@ function ProjectCard({ project, index }) {
         )}
       </div>
 
-      {/* Impact */}
-      <div className="px-5 pb-3">
-        <p className="text-[11px] font-medium text-emerald-700 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
-          {project.impact}
-        </p>
-      </div>
-
       {/* Description */}
       <div className="px-5 pb-4">
         <p className="text-sm text-slate-700 leading-relaxed">{project.description}</p>
@@ -355,23 +340,24 @@ export default function Projects() {
 
         {/* Header */}
         <ScrollAnimation>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <motion.div
-              className="h-px w-10 bg-linear-to-r from-transparent to-slate-400 origin-left"
+              className="h-px w-12 bg-linear-to-r from-transparent to-slate-400 origin-right"
               variants={lineGrow}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             />
-            <motion.span
-              className="text-[11px] tracking-[0.25em] uppercase text-slate-500 font-medium"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            <span className="text-sm sm:text-base tracking-[0.35em] uppercase text-slate-500 font-semibold">
               Projects
-            </motion.span>
+            </span>
+            <motion.div
+              className="h-px w-12 bg-linear-to-l from-transparent to-slate-400 origin-left"
+              variants={lineGrow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            />
           </div>
 
           <motion.div
@@ -381,16 +367,8 @@ export default function Projects() {
             transition={{ type: 'spring', stiffness: 70, damping: 16, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-[2.6rem] font-bold leading-[1.12] tracking-tight text-slate-900 mb-2">
-              Things I&apos;ve{' '}
-              <span className="bg-linear-to-r from-sky-600 via-slate-900 to-indigo-600 bg-clip-text text-transparent">
-                actually built.
-              </span>
-            </h2>
-            <p className="text-sm text-slate-700 max-w-lg">
-              4 professional projects from ARIBT + 3 personal projects.
-              All have real GitHub repos- no mock demos.
-            </p>
+           
+            
           </motion.div>
 
           {/* Filter tabs */}

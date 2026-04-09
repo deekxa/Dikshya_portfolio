@@ -33,24 +33,6 @@ const badgeVariants = {
   },
 };
 
-const statsContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.6 },
-  },
-};
-
-const statItem = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { type: 'spring', stiffness: 100, damping: 14 },
-  },
-};
-
 const pillsContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -88,35 +70,78 @@ const charVariant = {
 };
 
 const skills = [
-  { label: 'React',         color: 'cyan'   },
-  { label: 'Next.js',       color: 'slate'  },
-  { label: 'TypeScript',    color: 'blue'   },
-  { label: 'JavaScript',    color: 'yellow' },
-  { label: 'Tailwind CSS',  color: 'teal'   },
-  { label: 'Framer Motion', color: 'purple' },
-  { label: 'Jest / RTL',    color: 'rose'   },
-  { label: 'Playwright',    color: 'green'  },
-  { label: 'Figma',         color: 'pink'   },
+  { label: 'React' },
+  { label: 'Next.js' },
+  { label: 'TypeScript' },
+  { label: 'JavaScript' },
+  { label: 'Tailwind CSS' },
+  { label: 'Framer Motion' },
+  { label: 'Jest / RTL' },
+  { label: 'Playwright' },
+  { label: 'Figma' },
 ];
 
-const skillColors = {
-  cyan:   'border-cyan-400/30   bg-cyan-400/5   text-cyan-300/80   hover:bg-cyan-400/15   hover:border-cyan-400/60   hover:text-cyan-200',
-  slate:  'border-slate-400/30  bg-slate-400/5  text-slate-300/80  hover:bg-slate-400/15  hover:border-slate-300/50  hover:text-slate-200',
-  blue:   'border-blue-400/30   bg-blue-400/5   text-blue-300/80   hover:bg-blue-400/15   hover:border-blue-400/60   hover:text-blue-200',
-  teal:   'border-teal-400/30   bg-teal-400/5   text-teal-300/80   hover:bg-teal-400/15   hover:border-teal-400/60   hover:text-teal-200',
-  purple: 'border-purple-400/30 bg-purple-400/5 text-purple-300/80 hover:bg-purple-400/15 hover:border-purple-400/60 hover:text-purple-200',
-  rose:   'border-rose-400/30   bg-rose-400/5   text-rose-300/80   hover:bg-rose-400/15   hover:border-rose-400/60   hover:text-rose-200',
-  green:  'border-green-400/30  bg-green-400/5  text-green-300/80  hover:bg-green-400/15  hover:border-green-400/60  hover:text-green-200',
-  pink:   'border-pink-400/30   bg-pink-400/5   text-pink-300/80   hover:bg-pink-400/15   hover:border-pink-400/60   hover:text-pink-200',
-    yellow:   'border-pink-400/30   bg-pink-400/5   text-pink-300/80   hover:bg-pink-400/15   hover:border-pink-400/60   hover:text-pink-200',
+// ─── Typewriter Role Cycler ───────────────────────────────────────────────────
 
-};
-
-const statsData = [
-  { value: '1+ yr',    label: 'Production experience'   },
-  { value: '5+',       label: 'E-commerce · CMS · POS'  },
-  { value: 'QA',       label: 'Jest · Playwright · RTL' },
+const roles = [
+  'Frontend Developer',
+  'React & Next.js Engineer',
+  'UI/UX Implementer',
+  'Performance Optimizer',
+  'QA Automation Engineer',
 ];
+
+function TypewriterRole() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [phase, setPhase] = useState('typing');
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+
+    if (phase === 'typing') {
+      if (displayed.length < current.length) {
+        const t = setTimeout(
+          () => setDisplayed(current.slice(0, displayed.length + 1)),
+          48
+        );
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setPhase('pause'), 1600);
+        return () => clearTimeout(t);
+      }
+    }
+
+    if (phase === 'pause') {
+      const t = setTimeout(() => setPhase('erasing'), 400);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === 'erasing') {
+      if (displayed.length > 0) {
+        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 28);
+        return () => clearTimeout(t);
+      } else {
+        setRoleIndex((i) => (i + 1) % roles.length);
+        setPhase('typing');
+      }
+    }
+  }, [displayed, phase, roleIndex]);
+
+  return (
+    <p className="text-base sm:text-lg md:text-xl mb-2 flex flex-wrap gap-x-2 gap-y-1 justify-center items-center font-light min-h-[1.8rem]">
+      <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-400 bg-clip-text text-transparent font-medium">
+        {displayed}
+      </span>
+      {/* blinking cursor */}
+      <motion.span
+        className="inline-block w-[2px] h-5 bg-sky-400 rounded-sm ml-0.5 align-middle"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{ duration: 0.85, repeat: Infinity, ease: 'linear' }}
+      />
+    </p>
+  );
+}
 
 // ─── Particle Canvas ──────────────────────────────────────────────────────────
 
@@ -332,7 +357,7 @@ export default function Hero() {
                 <motion.span
                   key={i}
                   variants={charVariant}
-                  className="inline-block bg-linear-to-br from-slate-100 via-sky-200 to-indigo-300 bg-clip-text text-transparent"
+                  className="inline-block bg-gradient-to-br from-slate-100 via-sky-200 to-indigo-300 bg-clip-text text-transparent"
                   style={{ transformOrigin: 'bottom center' }}
                   whileHover={{ scale: 1.15, transition: { duration: 0.12 } }}
                 >
@@ -342,12 +367,8 @@ export default function Hero() {
             </motion.span>
           </h1>
 
-          {/* ── Role line ── */}
-          <p className="text-base sm:text-lg md:text-xl mb-2 flex flex-wrap gap-x-2 gap-y-1 justify-center items-center font-light min-h-[1.8rem]">
-            <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-400 bg-clip-text text-transparent font-medium">
-              Frontend Developer building scalable React &amp; Next.js applications
-            </span>
-          </p>
+          {/* ── Typewriter Role Line ── */}
+          <TypewriterRole />
 
           <FadeLine />
 
@@ -363,7 +384,7 @@ export default function Hero() {
                 key={s.label}
                 variants={pillItem}
                 whileHover={{ y: -2, scale: 1.06 }}
-                className={`px-3 py-[5px] text-[11px] tracking-wide font-medium rounded-full border backdrop-blur-sm cursor-default transition-all duration-200 ${skillColors[s.color]}`}
+                className="px-3 py-[5px] text-[11px] tracking-wide font-medium rounded-full border border-slate-500/40 bg-slate-800/35 text-slate-200/85 hover:bg-slate-800/55 hover:border-slate-400/60 hover:text-white backdrop-blur-sm cursor-default transition-all duration-200"
               >
                 {s.label}
               </motion.span>
@@ -377,7 +398,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.6 }}
           >
-            1+ year experience developing CMS, POS systems and e-commerce platforms with focus on performance and clean UI.
+            1+ year experience developing CMS, POS systems and e-commerce platforms
+            with focus on performance and clean UI.
           </motion.p>
 
           {/* ── CTAs ── */}
@@ -391,68 +413,72 @@ export default function Hero() {
             <Button href="/#contact" variant="secondary">Get in touch</Button>
           </motion.div>
 
-          {/* ── Featured Project ── */}
+          {/* ── Featured Projects ── */}
           <motion.div
-            className="mt-12 max-w-md mx-auto w-full"
+            className="mt-12 max-w-3xl mx-auto w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
             <p className="text-xs tracking-widest uppercase text-slate-600 mb-3">
-              Featured Project
+              Featured Projects
             </p>
 
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-3 hover:border-sky-500/40 transition">
-              <div className="w-full h-44 sm:h-48 rounded-lg overflow-hidden bg-slate-800/60">
-                <img
-                  src="/images/images.jpg"
-                  alt="POS System"
-                  className="h-full w-full object-cover object-center"
-                />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-3 hover:border-sky-500/40 transition">
+                <div className="w-full h-44 sm:h-48 rounded-lg overflow-hidden bg-slate-800/60">
+                  <img
+                    src="/images/images.jpg"
+                    alt="POS System"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <div className="flex justify-between items-center mt-3 gap-3">
+                  <p className="text-sm text-slate-300">POS System</p>
+                  <div className="flex gap-2 shrink-0">
+                    <a
+                      href="https://github.com/aman000712/Pos.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-400 hover:text-white"
+                    >
+                      Code
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex justify-between items-center mt-3 gap-3">
-                <p className="text-sm text-slate-300">
-                  POS System
-                </p>
-
-                <div className="flex gap-2 shrink-0">
-                  <a
-                    href="https://github.com/aman000712/Pos.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-slate-400 hover:text-white"
-                  >
-                    Code
-                  </a>
+              <div className="rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm p-3 hover:border-sky-500/40 transition">
+                <div className="w-full h-44 sm:h-48 rounded-lg overflow-hidden bg-slate-800/60">
+                  <img
+                    src="/images/123.png"
+                    alt="E-Commerce Bag Store"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <div className="flex justify-between items-center mt-3 gap-3">
+                  <p className="text-sm text-slate-300">E-Commerce Bag Store</p>
+                  <div className="flex gap-2 shrink-0">
+                    <a
+                      href="https://github.com/deekxa/bag-selling_ecommerce.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-400 hover:text-white"
+                    >
+                      Code
+                    </a>
+                    <a
+                      href="https://collegeproject-brown.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-400 hover:text-white"
+                    >
+                      Live
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
-
-          {/* ── Stats ── */}
-          <motion.div
-            className="flex flex-wrap items-stretch justify-center gap-3"
-            variants={statsContainer}
-            initial="hidden"
-            animate="visible"
-          >
-            {statsData.map((stat) => (
-              <motion.div
-                key={stat.value}
-                variants={statItem}
-                whileHover={{ y: -4, scale: 1.04 }}
-                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-                className="group px-6 py-4 rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm text-center min-w-[120px] cursor-default hover:border-slate-700 transition-colors duration-300"
-              >
-                <p className="text-lg font-semibold text-slate-200 group-hover:text-sky-300 transition-colors duration-300">
-                  {stat.value}
-                </p>
-                <p className="text-[10px] uppercase tracking-widest text-slate-600 mt-1 group-hover:text-slate-500 transition-colors duration-300">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
           </motion.div>
 
           {/* ── Scroll hint ── */}
@@ -463,7 +489,7 @@ export default function Hero() {
             transition={{ delay: 1.4 }}
           >
             <motion.div
-              className="h-10 w-px bg-linear-to-b from-slate-700 to-transparent"
+              className="h-10 w-px bg-gradient-to-b from-slate-700 to-transparent"
               animate={{ scaleY: [1, 0.3, 1], opacity: [0.4, 0.9, 0.4] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             />

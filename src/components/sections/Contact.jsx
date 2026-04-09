@@ -32,7 +32,7 @@ const contactLinks = [
     label: 'Other Portfolio',
     value: 'dikshyakhanal.com.np',
     href: 'https://dikshyakhanal.com.np',
-    // note: 'You are here',
+    note: 'Personal website',
     accent: 'emerald',
   },
 ];
@@ -131,13 +131,12 @@ function CopyButton({ text }) {
 
 export default function Contact() {
   // ── Form state ──
-  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!subject.trim() || !message.trim()) return;
+    if (!message.trim()) return;
 
     setStatus('sending');
 
@@ -147,7 +146,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: '7159affe-6b2a-4c8b-a1e6-eb425e235dc2',
-          subject: subject,
+          subject: 'Portfolio Contact Message',
           message: message,
           name: 'Portfolio Visitor',
           email: 'visitor@portfolio.com',
@@ -158,7 +157,6 @@ export default function Contact() {
 
       if (data.success) {
         setStatus('success');
-        setSubject('');
         setMessage('');
         setTimeout(() => setStatus('idle'), 5000);
       } else {
@@ -188,18 +186,18 @@ export default function Contact() {
 
         {/* ── Eyebrow ── */}
         <ScrollAnimation>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <motion.div
-              className="h-px w-10 bg-linear-to-r from-transparent to-slate-400 origin-left"
+              className="h-px w-12 bg-linear-to-r from-transparent to-slate-400 origin-right"
               variants={lineGrow} initial="hidden" whileInView="visible" viewport={{ once: true }}
             />
-            <motion.span
-              className="text-[11px] tracking-[0.25em] uppercase text-slate-500 font-medium"
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }} viewport={{ once: true }}
-            >
+            <span className="text-sm sm:text-base tracking-[0.35em] uppercase text-slate-500 font-semibold">
               Contact
-            </motion.span>
+            </span>
+            <motion.div
+              className="h-px w-12 bg-linear-to-l from-transparent to-slate-400 origin-left"
+              variants={lineGrow} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            />
           </div>
 
           {/* ── Big heading ── */}
@@ -210,16 +208,9 @@ export default function Contact() {
             transition={{ type: 'spring', stiffness: 65, damping: 16, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-slate-900 mb-4">
-              Let&apos;s work
-              <br />
-              <span className="bg-linear-to-r from-sky-600 via-slate-900 to-indigo-600 bg-clip-text text-transparent">
-                together.
-              </span>
-            </h2>
-            <p className="text-slate-700 text-sm sm:text-base max-w-md leading-relaxed">
-              Open to frontend roles, freelance projects, and internship extensions.
-              I respond within 24 hours usually much faster.
+            
+            <p className="text-slate-700 text-sm sm:text-base max-w-2xl mx-auto text-center leading-relaxed text-pretty">
+              Open to frontend roles, freelance projects, and internship extensions. I respond within 24 hours usually much faster.
             </p>
           </motion.div>
         </ScrollAnimation>
@@ -265,7 +256,7 @@ export default function Contact() {
                     <span className={`text-sm font-medium truncate pl-3.5 ${a.text}`}>
                       {value}
                     </span>
-                    <span className="text-[11px] text-slate-500 pl-3.5">{note}</span>
+                    {note ? <span className="text-[11px] text-slate-500 pl-3.5">{note}</span> : null}
                   </div>
 
                   <div className="flex items-center gap-1 shrink-0 pt-0.5">
@@ -293,31 +284,12 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="contact-subject" className="text-xs text-slate-500 tracking-wide">
-                  Subject
-                </label>
-                <input
-                  id="contact-subject"
-                  type="text"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  placeholder="Frontend role opportunity"
-                  required
-                  className="w-full px-4 py-2.5 rounded-xl text-sm text-slate-800
-                    bg-white border border-slate-300
-                    placeholder:text-slate-400
-                    focus:outline-none focus:border-sky-400 focus:bg-white
-                    transition-all duration-200"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1.5">
                 <label htmlFor="contact-message" className="text-xs text-slate-500 tracking-wide">
                   Message
                 </label>
                 <textarea
                   id="contact-message"
-                  rows={5}
+                  rows={7}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Hi Dikshya, I came across your portfolio and..."
@@ -386,9 +358,6 @@ export default function Contact() {
                 )}
               </motion.button>
 
-              <p className="text-[11px] text-slate-500 text-center">
-             
-              </p>
             </form>
           </motion.div>
         </div>
@@ -408,12 +377,12 @@ export default function Contact() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
             <span className="text-sm text-slate-700 font-medium">
-              Available for work  immediately
+              Available for work immediately
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-xs text-slate-500">
-            <span>Nepal (UTC+5:45)</span>
+            <span>Nepal</span>
             <span className="w-1 h-1 rounded-full bg-slate-400" />
             <span>Remote-ready</span>
             <span className="w-1 h-1 rounded-full bg-slate-400" />

@@ -153,10 +153,10 @@ const skillGroups = [
 ];
 
 const accentMap = {
-  sky:     { dot: 'bg-sky-400',     badge: 'bg-sky-400/10 text-sky-300 border-sky-400/20',         note: 'text-sky-500'     },
-  indigo:  { dot: 'bg-indigo-400',  badge: 'bg-indigo-400/10 text-indigo-300 border-indigo-400/20', note: 'text-indigo-500'  },
-  emerald: { dot: 'bg-emerald-400', badge: 'bg-emerald-400/10 text-emerald-300 border-emerald-400/20', note: 'text-emerald-500' },
-  slate:   { dot: 'bg-slate-400',   badge: 'bg-slate-400/10 text-slate-300 border-slate-400/20',   note: 'text-slate-400'   },
+  sky:     { dot: 'bg-slate-300', badge: 'bg-white/5 text-slate-200 border-white/10', note: 'text-slate-400' },
+  indigo:  { dot: 'bg-slate-300', badge: 'bg-white/5 text-slate-200 border-white/10', note: 'text-slate-400' },
+  emerald: { dot: 'bg-slate-300', badge: 'bg-white/5 text-slate-200 border-white/10', note: 'text-slate-400' },
+  slate:   { dot: 'bg-slate-300', badge: 'bg-white/5 text-slate-200 border-white/10', note: 'text-slate-400' },
 };
 
 // ─── Variants ─────────────────────────────────────────────────────────────────
@@ -198,25 +198,26 @@ export default function Skills() {
 
       <div className="relative mx-auto max-w-5xl">
 
-        {/* ── Eyebrow ── */}
+        {/* ── Eyebrow — centered (same style as About) ── */}
         <ScrollAnimation>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <motion.div
-              className="h-px w-10 bg-linear-to-r from-transparent to-slate-500 origin-left"
+              className="h-px w-12 bg-linear-to-r from-transparent to-slate-400 origin-right"
               variants={lineGrow}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             />
-            <motion.span
-              className="text-[11px] tracking-[0.25em] uppercase text-slate-400 font-medium"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            <span className="text-sm sm:text-base tracking-[0.35em] uppercase text-slate-300 font-semibold">
               Skills
-            </motion.span>
+            </span>
+            <motion.div
+              className="h-px w-12 bg-linear-to-l from-transparent to-slate-400 origin-left"
+              variants={lineGrow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            />
           </div>
 
           {/* Heading */}
@@ -227,15 +228,9 @@ export default function Skills() {
             transition={{ type: 'spring', stiffness: 70, damping: 16, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-[2.6rem] font-bold leading-[1.12] tracking-tight text-white mb-3">
-              Frontend-first.{' '}
-              <span className="bg-linear-to-r from-sky-200 via-white to-indigo-300 bg-clip-text text-transparent">
-                Tested by default.
-              </span>
-            </h2>
-            <p className="text-sm text-slate-400 max-w-xl leading-relaxed">
-              My speciality is React + Next.js  clean, typed, accessible, and animated.
-              Every feature I ship has tests. Not because someone asked, but because that&apos;s how I work.
+          
+            <p className="text-sm text-slate-400 max-w-xl mx-auto text-center leading-relaxed">
+             My specialty is building clean, accessible, and well-structured interfaces using React and Next.js. I focus on writing typed code, adding smooth animations, and ensuring features are tested before shipping.
             </p>
           </motion.div>
         </ScrollAnimation>
@@ -308,7 +303,7 @@ export default function Skills() {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          Specialist in Frontend · React · Next.js · TypeScript · JavaScript · Testing 
+          Focused on frontend quality: React, Next.js, TypeScript, testing, and performance.
         </motion.p>
 
       </div>

@@ -16,16 +16,16 @@ const experiences = [
     type: 'Internship',
     url: 'https://e-aribt.com/',
     summary:
-      'Built and shipped production-grade frontend systems used by 500+ active users. Sole frontend developer on 4 real products — CMS, POS, marketing site, and admin dashboard.',
+      'Built and shipped production-grade frontend systems . Sole frontend developer on 4 real products CMS, POS, marketing site, and admin dashboard.',
     achievements: [
-      'Developed responsive admin dashboards using React & JavaScript for 500+ active users',
+      'Developed responsive admin dashboards using React & JavaScript',
       'Implemented JWT authentication, Context API state management, and custom React hooks',
       'Built course management systems with real-time data sync and form validation (Formik/Yup)',
       'Created reusable component libraries with REST API integration',
       'Delivered 4 production projects: Educational CMS, POS System, Consultancy Website, Admin Dashboard',
     ],
     stack: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs', 'JWT', 'Context API', 'Formik'],
-    highlight: '4 production projects · 500+ users',
+    highlight: '4 production projects ',
   },
   {
     position: 'Frontend Developer Intern',
@@ -39,7 +39,7 @@ const experiences = [
       'Started with structured frontend development training, then transitioned to an internship role. Gained foundational hands-on experience in React, responsive design, and professional development workflows.',
     achievements: [
       'Completed structured training program in frontend development fundamentals',
-      'Transitioned from trainee to intern — applied skills on real projects',
+      'Transitioned from trainee to intern applied skills on real projects',
       'Practiced responsive layouts, component architecture, and Git workflows',
       'Built foundation in React and modern JavaScript (ES6+)',
     ],
@@ -300,23 +300,24 @@ export default function Experience() {
 
         {/* Header */}
         <ScrollAnimation>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <motion.div
-              className="h-px w-10 bg-gradient-to-r from-transparent to-slate-500 origin-left"
+              className="h-px w-12 bg-linear-to-r from-transparent to-slate-500 origin-right"
               variants={lineGrow}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             />
-            <motion.span
-              className="text-[11px] tracking-[0.25em] uppercase text-slate-400 font-medium"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            <span className="text-sm sm:text-base tracking-[0.35em] uppercase text-slate-300 font-semibold">
               Experience
-            </motion.span>
+            </span>
+            <motion.div
+              className="h-px w-12 bg-linear-to-l from-transparent to-slate-500 origin-left"
+              variants={lineGrow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            />
           </div>
 
           <motion.div
@@ -326,16 +327,8 @@ export default function Experience() {
             transition={{ type: 'spring', stiffness: 70, damping: 16, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-[2.6rem] font-bold leading-[1.12] tracking-tight text-white mb-2">
-              Where I&apos;ve{' '}
-              <span className="bg-gradient-to-r from-sky-200 via-white to-indigo-300 bg-clip-text text-transparent">
-                worked & trained.
-              </span>
-            </h2>
-            <p className="text-sm text-slate-400 max-w-lg">
-              1+ year of professional internship experience building production apps,
-              backed by formal training in frontend development.
-            </p>
+            
+           
           </motion.div>
         </ScrollAnimation>
 
